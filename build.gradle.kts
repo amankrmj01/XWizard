@@ -38,7 +38,6 @@ graalvmNative {
                 "--report-unsupported-elements-at-runtime",
                 "-H:+ReportExceptionStackTraces",
                 "-H:-CheckToolchain",
-                "-H:-UnlockExperimentalVMOptions"
             )
             // For PicoCLI
             buildArgs.add("-H:ReflectionConfigurationFiles=${project.layout.buildDirectory.get()}/resources/main/META-INF/native-image/reflect-config.json")
