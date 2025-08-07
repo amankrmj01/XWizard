@@ -3,53 +3,40 @@ package com.amankrmj.xwizard;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
-import picocli.CommandLine.Parameters;
+import com.amankrmj.xwizard.commands.PathCommand;
+import com.amankrmj.xwizard.java.JavaVersionManagerCommand;
+import com.amankrmj.xwizard.java.NativeCompilerCommand;
 
-import java.io.File;
-import java.util.List;
-import java.util.concurrent.Callable;
+@Command(name = "javawizard",
+         mixinStandardHelpOptions = true,
+         version = "1.0.0",
+         description = "JavaWizard - Complete Java Development Environment Manager",
+         subcommands = {
+             PathCommand.class,
+             JavaVersionManagerCommand.class,
+             NativeCompilerCommand.class
+         })
+public class Main implements Runnable {
 
-/**
- * Main CLI class for XWizard - a file processing wizard
- * Similar to Git, this supports subcommands like:
- * xwizard process [options] [files...]
- * xwizard analyze [options] [files...]
- * xwizard convert [options] [files...]
- */
-@Command(name = "xwizard",
-        version = "XWizard 1.0",
-        mixinStandardHelpOptions = true,
-        description = "A powerful file processing wizard built with Picocli.",
-        subcommands = {
-            ProcessCommand.class,
-            AnalyzeCommand.class,
-            ConvertCommand.class
-        })
-public class Main implements Callable<Integer> {
-
-    @Option(names = {"-v", "--verbose"}, description = "Enable verbose output", scope = CommandLine.ScopeType.INHERIT)
+    @Option(names = {"-v", "--verbose"}, description = "Enable verbose output")
     private boolean verbose = false;
 
+    public boolean isVerbose() {
+        return verbose;
+    }
+
     @Override
-    public Integer call() throws Exception {
-        // If no subcommand is provided, show help
-        System.out.println("XWizard - File Processing Wizard");
-        System.out.println("Use 'xwizard --help' to see available commands");
-        System.out.println();
-        System.out.println("Available commands:");
-        System.out.println("  process   - Process files with various operations");
-        System.out.println("  analyze   - Analyze file contents and structure");
-        System.out.println("  convert   - Convert files between different formats");
-        return 0;
+    public void run() {
+        System.out.println("JavaWizard - Complete Java Development Environment Manager");
+        System.out.println("Use --help for options or try these commands:");
+        System.out.println("  path     - Manage environment PATH variables");
+        System.out.println("  java     - Manage Java versions and installations");
+        System.out.println("  native   - Manage native compilation and cross-platform builds");
     }
 
     public static void main(String[] args) {
-        int exitCode = new CommandLine(new Main()).execute(args);
+        CommandLine cmd = new CommandLine(new Main());
+        int exitCode = cmd.execute(args);
         System.exit(exitCode);
-    }
-
-    // Getter for verbose flag (can be used by subcommands)
-    public boolean isVerbose() {
-        return verbose;
     }
 }

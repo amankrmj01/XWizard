@@ -8,6 +8,31 @@
 
 **XWizard** is a powerful command-line tool for Java version management that runs natively on Windows, Linux, and macOS without requiring JVM, JDK, or any external dependencies to be pre-installed.
 
+## 📚 Table of Contents
+
+- [✨ Features](#-features)
+- [🚀 Quick Start](#-quick-start)
+  - [Installation](#installation)
+  - [Basic Usage](#basic-usage)
+- [📖 Documentation](#-documentation)
+  - [Commands](#commands)
+  - [Examples](#examples)
+- [🛠️ Development](#️-development)
+  - [Prerequisites for Building](#prerequisites-for-building)
+  - [Building from Source](#building-from-source)
+  - [Project Structure](#project-structure)
+  - [Technology Stack](#technology-stack)
+- [🤝 Contributing](#-contributing)
+  - [How to Contribute](#how-to-contribute)
+  - [Development Guidelines](#development-guidelines)
+  - [Areas We Need Help With](#areas-we-need-help-with)
+- [📋 Roadmap](#-roadmap)
+- [🚀 Current Sprint](#-current-sprint)
+- [📄 License](#-license)
+- [🙏 Acknowledgments](#-acknowledgments)
+- [💡 Inspiration](#-inspiration)
+- [📞 Support](#-support)
+
 ## ✨ Features
 
 - 🔄 **Seamless Java Version Switching** - Switch between different Java versions instantly
@@ -187,15 +212,57 @@ We welcome contributions from the community! Whether you're fixing bugs, adding 
 - [ ] **v1.3.0**: Integration with popular build tools (Maven, Gradle)
 - [ ] **v2.0.0**: Support for other programming languages (Python, Node.js, Go, Rust)
 
+## 🚀 Current Sprint
+
+We're actively working on the following features and improvements:
+
+### 🌐 Web Interface Development
+- Building a visual web interface for interactive Java version management
+- Creating user-friendly GUI for non-CLI users
+- Developing real-time status dashboards and configuration panels
+
+### 🧪 Core Testing & Validation
+- Comprehensive testing of Java version management functionality
+- Validating installation, switching, and global version settings
+- Performance benchmarking of native executables across platforms
+
+### 📦 Native Build Optimization
+- Refining GraalVM native compilation process
+- Optimizing binary size and startup performance
+- Ensuring consistent behavior across Windows, Linux, and macOS
+
+*Stay tuned for updates as we enhance XWizard's capabilities!*
+
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU Affero General Public License v3.0 (GNU AGPLv3) - see the [LICENSE](LICENSE) file for details.
+
+### License Summary
+
+The **GNU AGPLv3** is a strong copyleft license that ensures this software remains free and open source:
+
+- ✅ **You can freely**: Use, study, modify, and distribute this software
+- ✅ **You must**: Share the source code of any modifications or derivative works
+- ✅ **Network use**: If you run a modified version as a service, you must make the complete source code available
+- ✅ **Patent protection**: Contributors grant patent rights to users
+- ⚠️ **Same license**: Any larger works that include this code must also use AGPLv3
+
+This license ensures that XWizard and any improvements to it remain free and available to everyone in the community.
 
 ## 🙏 Acknowledgments
 
-- **GraalVM Team** - For enabling native compilation
-- **PicoCLI Team** - For the excellent CLI framework
-- **Java Community** - For continuous innovation and support
+- **Oracle JDK 21** - For providing the modern Java platform
+- **GraalVM** - For enabling native compilation and ahead-of-time optimization
+- **PicoCLI** - For the excellent command-line interface framework
+
+## 💡 Inspiration
+
+XWizard was inspired by excellent version management tools in the developer ecosystem:
+
+- **[SDKMAN!](https://sdkman.io/)** - The Software Development Kit Manager for managing parallel versions of multiple SDKs
+- **[pyenv](https://github.com/pyenv/pyenv)** - Simple Python version management that pioneered the local/global version concept
+
+These tools demonstrated the power of seamless version switching and inspired us to create a native, dependency-free solution for Java developers.
 
 ## 📞 Support
 
@@ -207,7 +274,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-**Made with ❤️ by the XWizard Team**
+**Made with ❤️ by the XWizard**
 
 [Website](https://xwizard.dev) • [Documentation](https://docs.xwizard.dev) • [Twitter](https://twitter.com/xwizard_dev)
 
