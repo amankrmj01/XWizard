@@ -239,15 +239,15 @@ This project is licensed under the GNU Affero General Public License v3.0 (GNU A
 
 ### License Summary
 
-The **GNU AGPLv3** is a strong copyleft license that ensures this software remains free and open source:
+The **CC BY-NC 4.0** license allows you to:
 
-- ✅ **You can freely**: Use, study, modify, and distribute this software
-- ✅ **You must**: Share the source code of any modifications or derivative works
-- ✅ **Network use**: If you run a modified version as a service, you must make the complete source code available
-- ✅ **Patent protection**: Contributors grant patent rights to users
-- ⚠️ **Same license**: Any larger works that include this code must also use AGPLv3
+- ✅ **Share**: Copy and redistribute the material in any medium or format
+- ✅ **Adapt**: Remix, transform, and build upon the material
+- ✅ **Attribution**: You must give appropriate credit and indicate if changes were made
+- ❌ **NonCommercial**: You may not use the material for commercial purposes
+- ✅ **No Additional Restrictions**: The licensor cannot revoke these freedoms as long as you follow the license terms
 
-This license ensures that XWizard and any improvements to it remain free and available to everyone in the community.
+This license ensures that XWizard remains freely available for educational, research, and personal use while protecting against unauthorized commercial exploitation.
 
 ## 🙏 Acknowledgments
 
