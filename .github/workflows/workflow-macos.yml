@@ -1,4 +1,5 @@
 name: workflow-macos.yml
 on:
-
-jobs:
+  push:
+    tags:
+      - 'v4'

@@ -1,4 +1,5 @@
 name: workflow-linux.yml
 on:
-
-jobs:
+  push:
+    tags:
+      - 'v4'

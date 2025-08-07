@@ -6,6 +6,11 @@ on:
       - 'v*.*.*'
   workflow_dispatch:  # Allow manual trigger
 
+permissions:
+  contents: write
+  packages: write
+  actions: read
+
 jobs:
   build-windows:
     runs-on: windows-2022
