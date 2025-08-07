@@ -22,7 +22,7 @@ dependencies {
 }
 
 application {
-    mainClass.set("com.amankrmj.javawizard.JavaWizardApplication")
+    mainClass.set("com.amankrmj.xwizard.Main")
     applicationName = "javawizard"
 }
 
@@ -30,7 +30,7 @@ graalvmNative {
     binaries {
         named("main") {
             imageName.set("javawizard")
-            mainClass.set("com.amankrmj.javawizard.JavaWizardApplication")
+            mainClass.set("com.amankrmj.xwizard.Main")
             useFatJar.set(true)
             
             buildArgs.addAll(
@@ -38,7 +38,7 @@ graalvmNative {
                 "--report-unsupported-elements-at-runtime",
                 "-H:+ReportExceptionStackTraces",
                 "-H:-CheckToolchain",
-                "-H:+UnlockExperimentalVMOptions"
+                "-H:-UnlockExperimentalVMOptions"
             )
             // For PicoCLI
             buildArgs.add("-H:ReflectionConfigurationFiles=${project.layout.buildDirectory.get()}/resources/main/META-INF/native-image/reflect-config.json")
