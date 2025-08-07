@@ -79,12 +79,12 @@ jobs:
     - name: Verify installer creation
       run: |
         if (Test-Path "installer\JavaWizard-Native-Setup-*.exe") {
-          Write-Host "✅ Installer created successfully"
+          Write-Host "Installer created successfully"
           Get-ChildItem -Path "installer" -Filter "*.exe" | ForEach-Object {
-            Write-Host "📦 Created: $($_.Name) (Size: $([math]::Round($_.Length/1MB, 2)) MB)"
+            Write-Host "Created: $($_.Name) (Size: $([math]::Round($_.Length/1MB, 2)) MB)"
           }
         } else {
-          Write-Host "❌ Installer not found"
+          Write-Host "Installer not found"
           exit 1
         }
       shell: powershell
