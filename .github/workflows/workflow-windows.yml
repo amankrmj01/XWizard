@@ -80,7 +80,7 @@ jobs:
       run: |
         if (Test-Path "installer\JavaWizard-Native-Setup-*.exe") {
           Write-Host "✅ Installer created successfully"
-          Get-ChildItem -Path "installer" -Filter "*.exe" | ForEach-Object { 
+          Get-ChildItem -Path "installer" -Filter "*.exe" | ForEach-Object {
             Write-Host "📦 Created: $($_.Name) (Size: $([math]::Round($_.Length/1MB, 2)) MB)"
           }
         } else {
