@@ -36,7 +36,7 @@ jobs:
         native-image --version
 
     - name: Cache Gradle dependencies
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: |
           ~/.gradle/caches
@@ -120,62 +120,23 @@ jobs:
         }
       shell: powershell
 
-    - name: Create Release Notes
-      id: release_notes
-      run: |
-        $version = "${{ steps.version.outputs.VERSION }}"
-        $notes = @"
-        # JavaWizard v$version
-        
-        ## 🚀 What's New
-        - Native Windows executable (no JDK required!)
-        - Complete Java development environment manager
-        - PATH and Java version management tools
-        - Cross-platform native compilation support
-        
-        ## 📦 Downloads
-        - **JavaWizard_v$version.exe** - Windows installer (recommended)
-        - Includes all tools and commands
-        
-        ## 🛠️ Installation
-        1. Download JavaWizard_v$version.exe
-        2. Run the installer
-        3. Use from command line: ``javawizard --help``
-        
-        ## 📋 Available Commands
-        - ``javawizard path`` - Manage environment PATH variables
-        - ``javawizard java`` - Manage Java versions and installations  
-        - ``javawizard native`` - Cross-platform native compilation tools
-        - ``javawizard analyze`` - XML analysis tools
-        - ``javawizard convert`` - XML conversion utilities
-        - ``javawizard process`` - XML processing commands
-        
-        ## 🔧 System Requirements
-        - Windows 10/11 (x64)
-        - No Java installation required!
-        
-        ## 🐛 Bug Reports
-        Report issues at: https://github.com/${{ github.repository }}/issues
-        "@
-        
-        # Save to file for release
-        $notes | Out-File -FilePath "release-notes.md" -Encoding UTF8
-        
-        # Set output for GitHub release
-        $notes = $notes -replace "`r`n", "%0A" -replace "`n", "%0A"
-        echo "NOTES<<EOF" >> $env:GITHUB_OUTPUT
-        echo $notes >> $env:GITHUB_OUTPUT
-        echo "EOF" >> $env:GITHUB_OUTPUT
-      shell: powershell
+    - name: Upload Build Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: JavaWizard-Windows-v${{ steps.version.outputs.VERSION }}
+        path: |
+          build/native/nativeCompile/javawizard.exe
+          installer/*.exe
+          build/libs/*.jar
+        retention-days: 30
 
     - name: Create GitHub Release
-      id: create_release
-      uses: actions/create-release@v1
+      uses: softprops/action-gh-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ steps.version.outputs.VERSION_TAG }}
-        release_name: JavaWizard v${{ steps.version.outputs.VERSION }}
+        name: JavaWizard v${{ steps.version.outputs.VERSION }}
         body: |
           # JavaWizard v${{ steps.version.outputs.VERSION }}
           
@@ -204,33 +165,17 @@ jobs:
           ## 🔧 System Requirements
           - Windows 10/11 (x64)
           - No Java installation required!
+          
+          ## 🐛 Bug Reports
+          Report issues at: https://github.com/${{ github.repository }}/issues
+        files: |
+          installer/JavaWizard_v${{ steps.version.outputs.VERSION }}.exe
         draft: false
         prerelease: false
-
-    - name: Upload Release Asset
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: installer/JavaWizard_v${{ steps.version.outputs.VERSION }}.exe
-        asset_name: JavaWizard_v${{ steps.version.outputs.VERSION }}.exe
-        asset_content_type: application/octet-stream
-
-    - name: Upload Build Artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: JavaWizard-Windows-v${{ steps.version.outputs.VERSION }}
-        path: |
-          build/native/nativeCompile/javawizard.exe
-          installer/*.exe
-          build/libs/*.jar
-        retention-days: 30
 
     - name: Summary
       run: |
         Write-Host "🎉 Build and Release Completed Successfully!"
         Write-Host "📦 Release: ${{ steps.version.outputs.VERSION_TAG }}"
         Write-Host "💾 Installer: JavaWizard_v${{ steps.version.outputs.VERSION }}.exe"
-        Write-Host "🔗 Release URL: ${{ steps.create_release.outputs.html_url }}"
       shell: powershell
