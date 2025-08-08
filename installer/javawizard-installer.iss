@@ -1,7 +1,7 @@
 [Setup]
 AppName=JavaWizard
 AppVersion=1.0.0
-AppPublisher=amankrmj01
+AppPublisher=amankrmj
 AppPublisherURL=https://github.com/amankrmj01
 DefaultDirName={autopf}\JavaWizard
 DefaultGroupName=JavaWizard

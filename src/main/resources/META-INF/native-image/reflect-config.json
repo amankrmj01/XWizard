@@ -1,66 +1,11 @@
 [
   {
-    "name" : "com.amankrmj.xwizard.AnalyzeCommand",
-    "allDeclaredConstructors" : true,
-    "allPublicConstructors" : true,
-    "allDeclaredMethods" : true,
-    "allPublicMethods" : true,
-    "fields" : [
-      { "name" : "analysisType" },
-      { "name" : "files" },
-      { "name" : "generateReport" },
-      { "name" : "outputFile" },
-      { "name" : "parent" }
-    ]
-  },
-  {
-    "name" : "com.amankrmj.xwizard.ConvertCommand",
-    "allDeclaredConstructors" : true,
-    "allPublicConstructors" : true,
-    "allDeclaredMethods" : true,
-    "allPublicMethods" : true,
-    "fields" : [
-      { "name" : "files" },
-      { "name" : "outputPath" },
-      { "name" : "overwrite" },
-      { "name" : "parent" },
-      { "name" : "preserveStructure" },
-      { "name" : "targetFormat" }
-    ]
-  },
-  {
-    "name" : "com.amankrmj.xwizard.Main",
-    "allDeclaredConstructors" : true,
-    "allPublicConstructors" : true,
-    "allDeclaredMethods" : true,
-    "allPublicMethods" : true,
-    "fields" : [
-      { "name" : "verbose" }
-    ]
-  },
-  {
-    "name" : "com.amankrmj.xwizard.ProcessCommand",
-    "allDeclaredConstructors" : true,
-    "allPublicConstructors" : true,
-    "allDeclaredMethods" : true,
-    "allPublicMethods" : true,
-    "fields" : [
-      { "name" : "dryRun" },
-      { "name" : "files" },
-      { "name" : "format" },
-      { "name" : "outputPath" },
-      { "name" : "parent" }
-    ]
-  },
-  {
-    "name" : "picocli.CommandLine$AutoHelpMixin",
-    "allDeclaredConstructors" : true,
-    "allPublicConstructors" : true,
-    "allDeclaredMethods" : true,
-    "allPublicMethods" : true,
-    "fields" : [
-      { "name" : "helpRequested" },
-      { "name" : "versionRequested" }
-    ]
+    "name": "com.amankrmj.xwizard.java.model.OracleJavaVersionInfo",
+    "allDeclaredConstructors": true,
+    "allPublicConstructors": true,
+    "allDeclaredMethods": true,
+    "allPublicMethods": true,
+    "allDeclaredFields": true,
+    "allPublicFields": true
   }
 ]

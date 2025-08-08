@@ -15,6 +15,12 @@ dependencies {
     implementation("info.picocli:picocli:4.7.5")
     annotationProcessor("info.picocli:picocli-codegen:4.7.5")
     
+    
+    
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.17.1")
+    implementation("com.fasterxml.jackson.core:jackson-core:2.17.1")
+    implementation("com.fasterxml.jackson.core:jackson-annotations:2.17.1")
+    
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("org.mockito:mockito-core:5.5.0")
@@ -92,7 +98,12 @@ tasks.register<Exec>("createInstaller") {
         println("Creating installer with Inno Setup...")
     }
     
-    commandLine("cmd", "/c", "\"C:\\Program Files (x86)\\Inno Setup 6\\ISCC.exe\"", "installer/javawizard-installer.iss")
+    commandLine(
+        "cmd",
+        "/c",
+        "\"C:\\Program Files (x86)\\Inno Setup 6\\ISCC.exe\"",
+        "installer/javawizard-installer.iss"
+    )
     workingDir(projectDir)
     
     doLast {
